@@ -16,18 +16,19 @@ def clear_screen(more_bidders):
     if more_bidders == "yes":
         os.system('cls')
 
+def main():
+    go_on = True
+    while go_on:
+        name_of_bidder = input("Enter the bidder name: ")
+        ammount_bid = int(input("Enter your bid: "))
+        auction(name_of_bidder,ammount_bid)
 
+        num_of_bidder = input("Do you have anyone else to bid: ").lower()
+        clear_screen(num_of_bidder)
 
-go_on = True
-while go_on:
-    name_of_bidder = input("Enter the bidder name: ")
-    ammount_bid = int(input("Enter your bid: "))
-    auction(name_of_bidder,ammount_bid)
+        if num_of_bidder == "no":
+            go_on = False
 
-    num_of_bidder = input("Do you have anyone else to bid: ").lower()
-    clear_screen(num_of_bidder)
+    print(f'{max_bidder} won and the highest bid is ${max_bid}.')
 
-    if num_of_bidder == "no":
-        go_on = False
-
-print(f'{max_bidder} won and the highest bid is ${max_bid}.')
+main()
