@@ -1,68 +1,90 @@
-number = 0
+import os
+# number = 0
 
 def add(num1,num2):
     global number
-    number = num1+num2
-    return number
+    return num1+num2
 
 def subtract(num1,num2):
     global number
-    number = num1-num2
-    return number
+    return num1-num2
 
 def multiply(num1,num2):
     global number
-    number = num1*num2
-    return number
+    return num1*num2
 
 def divide(num1,num2):
     global number
     if num2 != 0:
-        number = num1/num2
+        return num1/num2
     else:
         print("Division by 0 error.")
-        number= None
-    return number
+        return None
 
-def icons():
-    print(f'+\n-\n*\n/')
+# def icons():
+#     print(f'+\n-\n*\n/')
 
+icons = {
+    "+" : add, "-": subtract, "*" : multiply, "/":divide
+}
 
-num1 = int(input("what is the first number: "))
-go_on = True
+def calculator():
+    num1 = int(input("what is the first number: "))
+    go_on = True
 
-while go_on:
-    icons()
-    action = input("pick an operator: ")
-    num2 = int(input("what is the next number: "))
+    while go_on:
+        # icons()
+        print("Available Operators")
+        for item in icons:
+            print(item)
 
-    if action == "+":
-        add(num1,num2)
+        action = input("pick an operator: ")
 
-    elif action == "-":
-        subtract(num1,num2)
-
-    elif action == "*":
-        multiply(num1,num2)
-
-    elif action == "/":
-        divide(num1,num2)
-
-    else:
-        print("Wrong Operator")
-        continue
-
-    if number is not None:
-        print(f'The result is {number}')
+        if action not in icons:
+                print("Wrong Operator")
+                continue
+        
+        num2 = int(input("what is the next number: "))
 
 
-    more_calc = input("Type 'y' to calculate more or 'n' to start a new calc.").lower()
-    if more_calc == "n":
+        # for item in icons:
+        #     if action == item:
+        #         operation = icons[item]
+        #     else:
+        #         print("Wrong Operator")
+        #         continue
 
-        num1 = int(input("what is the first number: "))
+        result = icons[action](num1,num2)
 
-    elif more_calc == "y":
-        num1 = number
+        # if action == "+":
+        #     add(num1,num2)
+
+        # elif action == "-":
+        #     subtract(num1,num2)
+
+        # elif action == "*":
+        #     multiply(num1,num2)
+
+        # elif action == "/":
+        #     divide(num1,num2)
+
+        # else:
+        #     print("Wrong Operator")
+        #     continue
+
+        # if number is not None:
+        #     print(f'The result is {number}')
+
+        print(f'result : {result}')
 
 
+        more_calc = input("Type 'y' to calculate more or 'n' to start a new calc.").lower()
+        if more_calc == "n":
+            os.system('cls')
+            num1 = int(input("what is the first number: "))
 
+
+        elif more_calc == "y":
+            num1 = result
+
+calculator()
