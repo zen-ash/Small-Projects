@@ -13,7 +13,8 @@ def guess(num_to_guess, attempt):
     while go_on:
         guess_input = int(input("Enter your guess : "))
         if guess_input == num_to_guess:
-            print("Correct")
+            print("Correct. You WIN")
+            print("*" * 5)
             break
         elif guess_input > num_to_guess:
             print("Too high")
@@ -21,6 +22,7 @@ def guess(num_to_guess, attempt):
         else:
             print("Too low")
             attempt -=1
+            
         print(f'You have {attempt} attempts left.')
         if attempt == 0:
             print("You lose")
