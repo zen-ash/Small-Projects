@@ -2,12 +2,13 @@ import random
 import os
 print("welcom to Number Guessing Game")
 
-def num_to_guess():
-    num_to_guess = random.randint(1,100)
-    print(num_to_guess)
 
+# def num_to_guess():
+#     num_to_guess = random.randint(1,100)
+#     print(num_to_guess)
+#     return num_to_guess
 
-def guess(attempt):
+def guess(num_to_guess, attempt):
     go_on = True
     while go_on:
         guess_input = int(input("Enter your guess : "))
@@ -22,20 +23,23 @@ def guess(attempt):
             attempt -=1
         print(f'You have {attempt} attempts left.')
         if attempt == 0:
+            print("You lose")
+            print("*" * 5)
             go_on = False
  
-
 
 def main():
     play_again = True
     while play_again:
-        num_to_guess()
+        # num_to_guess()
+        num_to_guess = random.randint(1,100)
+        # print(num_to_guess)
         difficulty = input("Type 'easy' for easy mode and 'hard' for hard mode: ").lower()
         if difficulty == "easy":
             attempt = 10
         if difficulty == "hard":
             attempt = 5
-        guess(attempt)
+        guess(num_to_guess, attempt)
 
         wanna_play_again = input(f"Want to play again 'yes or no': ").lower()
         if wanna_play_again != "no":
@@ -45,4 +49,3 @@ def main():
             
 
 main()
-
