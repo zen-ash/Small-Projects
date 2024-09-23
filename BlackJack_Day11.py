@@ -1,9 +1,7 @@
 import random
 import os
 
-
 list_of_cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10,10,10]
-
 
 def add_card(user_cards, comp_cards):
     for i in range(2):
@@ -11,8 +9,8 @@ def add_card(user_cards, comp_cards):
         comp_cards.append(random.choice(list_of_cards))
 
     print(f"Your cards are : {user_cards}")
-    # print(f' Comp cards are : {comp_cards}')
     print(f' Comp cards are : {comp_cards[:-1]}')
+
 
 def more_cards(user_cards, comp_cards):
     more_cards_need = True
@@ -23,7 +21,6 @@ def more_cards(user_cards, comp_cards):
             user_cards.append(random.choice(list_of_cards))
             comp_cards.append(random.choice(list_of_cards))
             
-
             user_sum = sum(user_cards)
             comp_sum = sum(comp_cards)
 
@@ -38,7 +35,6 @@ def more_cards(user_cards, comp_cards):
             elif comp_sum > 21:
                 more_cards_need = False
                 
- 
         elif user_more_cards == 'n':
             comp_sum = sum(comp_cards)
             while comp_sum < 17:
