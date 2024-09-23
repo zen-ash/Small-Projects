@@ -2,7 +2,7 @@ import random
 import os
 
 
-list_of_cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10,10,10]
+list_of_cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10,10,10]
 
 
 def add_card(user_cards, comp_cards):
@@ -18,17 +18,33 @@ def more_cards(user_cards, comp_cards):
     more_cards_need = True
     while more_cards_need:
         user_more_cards = input("Enter 'y' to get more cards and 'n' to pass: ").lower()
-        if user_more_cards == 'y':
+
+        if user_more_cards == 'y':           
             user_cards.append(random.choice(list_of_cards))
             comp_cards.append(random.choice(list_of_cards))
-            print(f"User cards: {user_cards},Computer Cards:  {comp_cards[:-1]}")
+            
 
             user_sum = sum(user_cards)
             comp_sum = sum(comp_cards)
-            if user_sum > 21 or comp_sum > 21:
+
+            if user_sum > 21 and 11 in user_cards:
+                user_cards[user_cards.index(11)] = 1
+                user_sum = sum(user_cards)
+
+            print(f"User cards: {user_cards},Computer Cards:  {comp_cards}")
+
+            if user_sum > 21:
                 more_cards_need = False
+            elif comp_sum > 21:
+                more_cards_need = False
+                
  
-        if user_more_cards == 'n':
+        elif user_more_cards == 'n':
+            comp_sum = sum(comp_cards)
+            while comp_sum < 17:
+                comp_cards.append(random.choice(list_of_cards))
+                comp_sum = sum(comp_cards)
+            print(f'Comp Sum is less than 17. comp has got another card : {comp_cards[:-1]}')    
             more_cards_need = False
 
     
@@ -60,8 +76,6 @@ def main():
             go_on = False
         else:
             os.system('cls')
-
-
-
+     
 
 main()
