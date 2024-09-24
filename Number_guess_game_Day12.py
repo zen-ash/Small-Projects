@@ -3,11 +3,6 @@ import os
 print("welcom to Number Guessing Game")
 
 
-# def num_to_guess():
-#     num_to_guess = random.randint(1,100)
-#     print(num_to_guess)
-#     return num_to_guess
-
 def guess(num_to_guess, attempt):
     go_on = True
     while go_on:
@@ -33,9 +28,7 @@ def guess(num_to_guess, attempt):
 def main():
     play_again = True
     while play_again:
-        # num_to_guess()
         num_to_guess = random.randint(1,100)
-        # print(num_to_guess)
         difficulty = input("Type 'easy' for easy mode and 'hard' for hard mode: ").lower()
         if difficulty == "easy":
             attempt = 10
