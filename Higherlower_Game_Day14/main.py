@@ -28,7 +28,7 @@ def compare(follower_1, follower_2):
     if user_guess == 'a':
         if follower_1 > follower_2:
             score += 1
-            print("Correct")
+            print(f"Correct. ")
         else:
             print("You lose")
             keep_playing = False
@@ -36,7 +36,7 @@ def compare(follower_1, follower_2):
     elif user_guess == 'b':
         if follower_2 > follower_1:
             score += 1
-            print("Correct")
+            print(f"Correct. ")
         else:
             print("You lose")
             keep_playing = False
@@ -45,6 +45,7 @@ def compare(follower_1, follower_2):
 
 
 def main():
+    global score
     go_on = True
     man_a = details(A)
     man_b = details(B)
@@ -64,6 +65,7 @@ def main():
             print(f"B : {B[0]}, {B[2]}, {B[3]}, ")
 
             compare(A[1], B[1])
+            print()
             A.clear()
             for i in B:
                 A.append(i)
@@ -73,6 +75,8 @@ def main():
         wanna_play_again = input("Wanna play again 'yes' or 'no': ").lower()
         if wanna_play_again != "yes":
             go_on = False
+        else:
+            score = 0
             os.system('cls')
         
 
