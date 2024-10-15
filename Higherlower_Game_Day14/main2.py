@@ -40,9 +40,9 @@ while go_on:
     if is_correct:
         score += 1
         print(f"You are right. Your score is {score}")
-        account_a = account_b
-        account_b = {}
-        print(f'account a is {account_a}')
+        # account_a =                                   account_b
+        # account_b = {}
+        # print(f'account a is {account_a}')
 
     else:
         print(f"Sorry, that's wrong. Final score: {score}")
