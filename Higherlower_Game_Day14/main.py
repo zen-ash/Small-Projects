@@ -65,7 +65,7 @@ def main():
             print(f"B : {B[0]}, {B[2]}, {B[3]}, ")
 
             compare(A[1], B[1])
-            print()
+            
             A.clear()
             for i in B:
                 A.append(i)
