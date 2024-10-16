@@ -17,14 +17,14 @@ def money_compare():
 def is_resource_sufficient(order_ingredients):
     "Retunr True if ingredients available , return False if not"
     for item in order_ingredients:
-        if order_ingredients[item] >= resources[item]:
+        if order_ingredients[item] > resources[item]:
             print(f"Sorry, there is not enough {item}.")
             return False
-        return True
+    return True
         
 def transaction(payment, drink_cost):
     if payment >= drink_cost:
-        change = payment - drink_cost
+        change = round(payment - drink_cost, 2)
         print(f"Your change is : {change}")
         global profit
         profit += drink_cost
@@ -36,9 +36,7 @@ def transaction(payment, drink_cost):
 def make_coffee(drink_ingredients):
     for item in drink_ingredients:
         resources[item] -= drink_ingredients[item]
-        print("Here's your coffee enjoy!😊")
-    return resources[item]
-
+    print("Here's your coffee enjoy!😊")
 
 
 go_on = True
