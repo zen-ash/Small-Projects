@@ -1,7 +1,7 @@
-from data import coffee_info
-from data import resources
-from data import profit
-
+# from data import coffee_info
+# from data import resources
+# from data import profit
+from data import *
 
 def money_compare():
     "Return the total money "
@@ -59,6 +59,5 @@ while go_on:
                 payment = money_compare()
                 if transaction(payment, drink["cost"]):
                     make_coffee(drink["ingredients"])
-        
         else:
             print("Sorry, we don't serve that.")
