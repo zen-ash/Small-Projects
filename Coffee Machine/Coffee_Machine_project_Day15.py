@@ -1,6 +1,4 @@
-# from data import coffee_info
-# from data import resources
-# from data import profit
+
 from data import *
 
 def money_compare():
