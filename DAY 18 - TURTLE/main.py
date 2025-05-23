@@ -3,8 +3,8 @@ from turtle import Turtle, Screen
 import random
 
 timmy = Turtle()
-timmy.shape("turtle")
-timmy.color("red")
+timmy.shape("triangle")
+# timmy.color("red")
 
 # for i in range(4):
 #     timmy.forward(100)
@@ -37,11 +37,11 @@ timmy.color("red")
 
 
 
-def draw_shape(num_of_sides):
-    angle = 360/num_of_sides
-    for i in range(num_of_sides):
-        timmy.forward(100)
-        timmy.right(angle)
+# def draw_shape(num_of_sides):
+#     angle = 360/num_of_sides
+#     for i in range(num_of_sides):
+#         timmy.forward(100)
+#         timmy.right(angle)
 
 def change_color():
     a = random.random()
@@ -49,14 +49,39 @@ def change_color():
     c = random.random()
     timmy.pencolor(a,b,c)
 
-def main():
-    num_of_sides = 3
-    while (num_of_sides<=10):
-        change_color()
-        draw_shape(num_of_sides)
-        num_of_sides += 1
+# def main():
+#     num_of_sides = 3
+#     while (num_of_sides<=10):
+#         change_color()
+#         draw_shape(num_of_sides)
+#         num_of_sides += 1
 
-main()
+# main()
+
+####Random Walk
+
+
+def move_forward():
+    timmy.forward(25)
+
+angle = [0,90,180,270]
+timmy.speed('fast')
+timmy.pensize('5')
+
+
+while True:
+    random_angle = random.choice(angle)
+    change_color()
+    timmy.setheading(random_angle)
+    move_forward()
+
+
+
+
+
+
+
+
 
 screen = Screen()
 screen.exitonclick()
