@@ -7,6 +7,8 @@ turtle.colormode(255)
 screen = Screen()
 screen.screensize(500,500)
 screen.title("Turtle Race")
+screen.bgcolor("lightblue")
+
 
 def create_turtle():
     t1 = Turtle(shape="turtle")
@@ -38,7 +40,7 @@ def all_turtle():
 
 def race():
     all_turtle()
-    race_win_bet = screen.textinput("Race","Who will WIN ?")
+    race_win_bet = screen.textinput("Race","Who will WIN ?").lower()
     while True:
         for i in lst_turtle:
             i.forward(random.randrange(1,11))
@@ -56,7 +58,6 @@ race()
 
 
 
-# screen.bgcolor("lightblue")
 
 
 
